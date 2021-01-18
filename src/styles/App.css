@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.App {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  color: #393a4b;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 86%;
+  margin: 0 auto;
+}
+
+.App {
+  background: #f2f2f2;
+  transition: all 200ms ease-in;
+}
+.App .header {
+  height: 200px;
+  padding: 48px 7%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../images/bg-mobile-light.jpg");
+  margin-bottom: -100px;
+  transition: all 200ms ease-in;
+}
+@media (min-width: 700px) {
+  .App .header {
+    height: 300px;
+    margin-bottom: -150px;
+    padding: 70px 0;
+    background-image: url("../images/bg-desktop-light.jpg");
+  }
+}
+.App .header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 540px;
+}
+.App .header h1 {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+@media (min-width: 700px) {
+  .App .header h1 {
+    font-size: 40px;
+  }
+}
+.App .header button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.App .header button:active, .App .header button:focus {
+  outline: transparent;
+}
+.App .input-bar {
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 540px;
+  margin-bottom: 24px;
+  height: 48px;
+  transition: all 200ms ease-in;
+}
+@media (min-width: 700px) {
+  .App .input-bar {
+    height: 64px;
+  }
+}
+.App .input-bar .circle {
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e3e4f1;
+  border-radius: 50%;
+}
+.App .input-bar input[type=text] {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  border: none;
+  caret-color: #3a7cfd;
+  transition: all 200ms ease-in;
+}
+@media (min-width: 700px) {
+  .App .input-bar input[type=text] {
+    font-size: 18px;
+  }
+}
+.App .input-bar input[type=text]::-moz-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  color: #9495a5;
+  font-size: 12px;
+}
+.App .input-bar input[type=text]:-ms-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  color: #9495a5;
+  font-size: 12px;
+}
+.App .input-bar input[type=text]::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  color: #9495a5;
+  font-size: 12px;
+}
+@media (min-width: 700px) {
+  .App .input-bar input[type=text]::-moz-placeholder {
+    font-size: 18px;
+  }
+  .App .input-bar input[type=text]:-ms-input-placeholder {
+    font-size: 18px;
+  }
+  .App .input-bar input[type=text]::placeholder {
+    font-size: 18px;
+  }
+}
+.App .input-bar input[type=text]:focus {
+  outline: none;
+}
+.App .list-container {
+  list-style: none;
+  background: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  max-width: 540px;
+  transition: all 200ms ease-in;
+}
+.App .list-container li {
+  cursor: -webkit-grab;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e3e4f1;
+  font-size: 12px;
+  line-height: 2;
+  position: relative;
+  z-index: 0;
+}
+@media (min-width: 700px) {
+  .App .list-container li {
+    font-size: 18px;
+  }
+}
+.App .list-container li .start-details {
+  display: flex;
+  align-items: center;
+}
+.App .list-container li .start-details .text.checked {
+  color: #d1d2da;
+  text-decoration: line-through;
+}
+.App .list-container li .checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 1px solid #e3e4f1;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  margin-right: 12px;
+}
+.App .list-container li .checkbox:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+}
+.App .list-container li .checkbox:checked {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+  outline: none;
+}
+.App .list-container li .checkbox:checked::after {
+  content: url("../images/icon-check.svg");
+  position: absolute;
+  top: 1px;
+  left: 3px;
+}
+.App .list-container li .checkbox:hover {
+  cursor: pointer;
+  border: transparent;
+}
+.App .list-container li .checkbox:active, .App .list-container li .checkbox:focus {
+  outline: transparent;
+}
+.App .list-container li .close-button {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+}
+.App .control-bar {
+  background: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 20px;
+  max-width: 540px;
+  transition: all 200ms ease-in;
+}
+.App .control-bar .footer-text {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.17px;
+  color: #9495a5;
+}
+@media (min-width: 700px) {
+  .App .control-bar .footer-text {
+    font-size: 14px;
+  }
+}
+.App .control-bar .clear-complete {
+  background: transparent;
+  border: none;
+  text-align: right;
+}
+.App .control-bar .clear-complete:hover {
+  cursor: pointer;
+  color: #494c6b;
+}
+.App .control-bar .clear-complete:active, .App .control-bar .clear-complete:focus {
+  outline: transparent;
+}
+.App .control-bar .buttons {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 16px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 18px 80px;
+  border-radius: 5px;
+  transition: all 200ms ease-in;
+}
+@media (min-width: 700px) {
+  .App .control-bar .buttons {
+    position: relative;
+    margin-top: 0;
+    padding: 0;
+    justify-content: center;
+    gap: 19px;
+    width: auto;
+  }
+}
+.App .control-bar .buttons button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+  color: #9495a5;
+}
+@media (min-width: 700px) {
+  .App .control-bar .buttons button {
+    font-weight: 700;
+  }
+}
+.App .control-bar .buttons button:hover {
+  color: #494c6b;
+}
+.App .control-bar .buttons button.active {
+  color: #3a7cfd;
+}
+.App .control-bar .buttons button:active, .App .control-bar .buttons button:focus {
+  outline: transparent;
+}
+
+.App.night {
+  background: #171823;
+}
+.App.night .header {
+  background-image: url("../images/bg-mobile-dark.jpg");
+}
+@media (min-width: 700px) {
+  .App.night .header {
+    background-image: url("../images/bg-desktop-dark.jpg");
+  }
+}
+.App.night .input-bar {
+  background: #25273d;
+}
+.App.night .input-bar .circle {
+  border: 1px solid #393a4b;
+}
+.App.night .input-bar input[type=text] {
+  background: #25273d;
+  color: #c8cbe7;
+}
+.App.night .input-bar input[type=text]::-moz-placeholder {
+  color: #767992;
+  background: #25273d;
+}
+.App.night .input-bar input[type=text]:-ms-input-placeholder {
+  color: #767992;
+  background: #25273d;
+}
+.App.night .input-bar input[type=text]::placeholder {
+  color: #767992;
+  background: #25273d;
+}
+.App.night .list-container {
+  background: #25273d;
+}
+.App.night .list-container li {
+  color: #c8cbe7;
+  border-bottom: 1px solid #393a4b;
+}
+.App.night .list-container li .text.checked {
+  color: #4d5067;
+  text-decoration: line-through;
+}
+.App.night .list-container .checkbox {
+  background: #25273d;
+  border: 1px solid #393a4b;
+}
+.App.night .list-container .checkbox:checked {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+}
+.App.night .control-bar {
+  background: #25273d;
+}
+.App.night .control-bar .footer-text {
+  color: #5b5e7e;
+}
+.App.night .control-bar .clear-complete:hover {
+  color: #e3e4f1;
+}
+.App.night .control-bar .buttons {
+  background: #25273d;
+}
+.App.night .control-bar .buttons button {
+  color: #5b5e7e;
+}
+.App.night .control-bar .buttons button:hover {
+  color: #e3e4f1;
+}
+.App.night .control-bar .buttons button:active {
+  outline: none;
+}
+.App.night .control-bar .buttons button.active {
+  color: #3a7cfd;
+  outline: none;
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,425 @@
+// Set up
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.App {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  color: #393a4b;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 86%;
+  margin: 0 auto;
+}
+
+// Media query mixin ====
+// ======================
+
+@mixin mq($breakpoint) {
+  @if $breakpoint==desktop {
+    @media (min-width: 700px) {
+      @content;
+    }
+  }
+}
+
+// LIGHT MODE ========
+// ===================
+
+.App {
+  background: #f2f2f2;
+  transition: all 200ms ease-in;
+  // Header
+  .header {
+    height: 200px;
+    padding: 48px 7%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/bg-mobile-light.jpg");
+    margin-bottom: -100px;
+    transition: all 200ms ease-in;
+
+    @include mq(desktop) {
+      height: 300px;
+      margin-bottom: -150px;
+      padding: 70px 0;
+      background-image: url("../images/bg-desktop-light.jpg");
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 540px;
+    }
+
+    h1 {
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+
+      @include mq(desktop) {
+        font-size: 40px;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+
+      &:active,
+      &:focus {
+        outline: transparent;
+      }
+    }
+  }
+
+  // Input
+  .input-bar {
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 540px;
+    margin-bottom: 24px;
+    height: 48px;
+    transition: all 200ms ease-in;
+
+    @include mq(desktop) {
+      height: 64px;
+    }
+
+    .circle {
+      margin-right: 12px;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #e3e4f1;
+      border-radius: 50%;
+    }
+
+    input[type="text"] {
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 12px;
+      line-height: 1;
+      border: none;
+      caret-color: #3a7cfd;
+      transition: all 200ms ease-in;
+
+      @include mq(desktop) {
+        font-size: 18px;
+      }
+
+      &::placeholder {
+        font-family: "Josefin Sans", sans-serif;
+        color: #9495a5;
+        font-size: 12px;
+
+        @include mq(desktop) {
+          font-size: 18px;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  // List
+
+  .list-container {
+    list-style: none;
+    background: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    max-width: 540px;
+    transition: all 200ms ease-in;
+
+    li {
+      cursor: grab;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e3e4f1;
+      font-size: 12px;
+      line-height: 2;
+      position: relative;
+      z-index: 0;
+
+      @include mq(desktop) {
+        font-size: 18px;
+      }
+
+      .start-details {
+        display: flex;
+        align-items: center;
+
+        .text.checked {
+          color: #d1d2da;
+          text-decoration: line-through;
+        }
+      }
+
+      .checkbox {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 1px solid #e3e4f1;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        margin-right: 12px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          z-index: -1;
+          margin: -1px;
+          border-radius: inherit;
+          background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+        }
+
+        &:checked {
+          background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+          outline: none;
+
+          &::after {
+            content: url("../images/icon-check.svg");
+            position: absolute;
+            top: 1px;
+            left: 3px;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          border: transparent;
+        }
+
+        &:active,
+        &:focus {
+          outline: transparent;
+        }
+      }
+
+      .close-button {
+        cursor: pointer;
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  // Control
+
+  .control-bar {
+    background: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px 20px;
+    max-width: 540px;
+    transition: all 200ms ease-in;
+
+    .footer-text {
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.17px;
+      color: #9495a5;
+
+      @include mq(desktop) {
+        font-size: 14px;
+      }
+    }
+
+    .clear-complete {
+      background: transparent;
+      border: none;
+      text-align: right;
+
+      &:hover {
+        cursor: pointer;
+        color: #494c6b;
+      }
+
+      &:active,
+      &:focus {
+        outline: transparent;
+      }
+    }
+
+    .buttons {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin-top: 16px;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 18px 80px;
+      border-radius: 5px;
+      transition: all 200ms ease-in;
+
+      @include mq(desktop) {
+        position: relative;
+        margin-top: 0;
+        padding: 0;
+        justify-content: center;
+        gap: 19px;
+        width: auto;
+      }
+
+      button {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 14px;
+        color: #9495a5;
+
+        @include mq(desktop) {
+          font-weight: 700;
+        }
+
+        &:hover {
+          color: #494c6b;
+        }
+
+        &.active {
+          color: #3a7cfd;
+        }
+
+        &:active,
+        &:focus {
+          outline: transparent;
+        }
+      }
+    }
+  }
+}
+
+// NIGHT MODE =====
+// ================
+
+.App.night {
+  background: #171823;
+  //Header
+  .header {
+    background-image: url("../images/bg-mobile-dark.jpg");
+
+    @include mq(desktop) {
+      background-image: url("../images/bg-desktop-dark.jpg");
+    }
+  }
+
+  //Input
+  .input-bar {
+    background: #25273d;
+
+    .circle {
+      border: 1px solid #393a4b;
+    }
+
+    input[type="text"] {
+      background: #25273d;
+      color: #c8cbe7;
+
+      &::placeholder {
+        color: #767992;
+        background: #25273d;
+      }
+    }
+  }
+
+  //List
+  .list-container {
+    background: #25273d;
+
+    li {
+      color: #c8cbe7;
+      border-bottom: 1px solid #393a4b;
+
+      .text.checked {
+        color: #4d5067;
+        text-decoration: line-through;
+      }
+    }
+
+    .checkbox {
+      background: #25273d;
+      border: 1px solid #393a4b;
+
+      &:checked {
+        background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+      }
+    }
+  }
+
+  //Control
+  .control-bar {
+    background: #25273d;
+    .footer-text {
+      color: #5b5e7e;
+    }
+    .clear-complete:hover {
+      color: #e3e4f1;
+    }
+    .buttons {
+      background: #25273d;
+
+      button {
+        color: #5b5e7e;
+
+        &:hover {
+          color: #e3e4f1;
+        }
+
+        &:active {
+          outline: none;
+        }
+
+        &.active {
+          color: #3a7cfd;
+          outline: none;
+        }
+      }
+    }
+  }
+}
