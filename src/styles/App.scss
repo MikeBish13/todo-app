@@ -110,6 +110,7 @@ button {
     margin-bottom: 24px;
     height: 48px;
     transition: all 200ms ease-in;
+    box-shadow: 0px 35px 50px -15px #c2c3d68c;
 
     @include mq(desktop) {
       height: 64px;
@@ -160,6 +161,7 @@ button {
     border-top-right-radius: 5px;
     max-width: 540px;
     transition: all 200ms ease-in;
+    box-shadow: 0px 35px 50px -15px #c2c3d68c;
 
     li {
       cursor: grab;
@@ -255,6 +257,7 @@ button {
     padding: 16px 20px 20px;
     max-width: 540px;
     transition: all 200ms ease-in;
+    box-shadow: 0px 35px 50px -15px #c2c3d68c;
 
     .footer-text {
       font-family: "Josefin Sans", sans-serif;
@@ -296,6 +299,7 @@ button {
       padding: 18px 80px;
       border-radius: 5px;
       transition: all 200ms ease-in;
+      box-shadow: 0px 35px 50px -15px #c2c3d68c;
 
       @include mq(desktop) {
         position: relative;
@@ -335,6 +339,20 @@ button {
   }
 }
 
+//Drag text
+.drag-text {
+  margin-top: 100px;
+  text-align: center;
+  color: #9495a5;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+
+  @include mq(desktop) {
+    margin-top: 49px;
+  }
+}
+
 // NIGHT MODE =====
 // ================
 
@@ -352,6 +370,7 @@ button {
   //Input
   .input-bar {
     background: #25273d;
+    box-shadow: 0px 35px 50px -15px #00000085;
 
     .circle {
       border: 1px solid #393a4b;
@@ -371,6 +390,7 @@ button {
   //List
   .list-container {
     background: #25273d;
+    box-shadow: 0px 35px 50px -15px #00000085;
 
     li {
       color: #c8cbe7;
@@ -395,6 +415,8 @@ button {
   //Control
   .control-bar {
     background: #25273d;
+    box-shadow: 0px 35px 50px -15px #00000085;
+
     .footer-text {
       color: #5b5e7e;
     }
@@ -403,6 +425,7 @@ button {
     }
     .buttons {
       background: #25273d;
+      box-shadow: 0px 35px 50px -15px #00000085;
 
       button {
         color: #5b5e7e;
@@ -421,5 +444,10 @@ button {
         }
       }
     }
+  }
+
+  //Drag text
+  .drag-text {
+    color: #5b5e7e;
   }
 }

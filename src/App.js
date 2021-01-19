@@ -35,6 +35,7 @@ function App() {
       <Input toDos={toDos} addToDos={addToDos} input={input} setInput={setInput} lightMode={lightMode} />
       <List toDos={toDos} addToDos={addToDos} active={active} complete={complete} all={all} lightMode={lightMode} />
       <Control toDos={toDos} addToDos={addToDos} active={active} setActive={setActive} complete={complete} setComplete={setComplete} all={all} setAll={setAll} />
+      <p className="drag-text container">Drag and drop to reorder list</p>
     </div>
   );
 }
