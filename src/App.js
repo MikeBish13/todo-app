@@ -1,8 +1,9 @@
 import './styles/App.css';
+import { startData } from './components/startData';
 import Input from './components/input';
 import List from './components/list';
 import Control from './components/control';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Sun from './images/icon-sun.svg';
 import Moon from './images/icon-moon.svg';
@@ -15,6 +16,10 @@ function App() {
   const [ complete, setComplete ] = useState(false);
   const [ all, setAll ] = useState(true);
   const [ lightMode, isLightMode] = useState(true);
+
+  useEffect(() => {
+    addToDos(startData)
+  }, []);
 
   // Change the class of the header for light or dark mode
   const lightToggle = clsx('App', { 'day': lightMode, 'night': !lightMode});
